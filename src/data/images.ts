@@ -3,7 +3,6 @@
    photo() returns the public path; swap the files in /public/images to re-theme. */
 import fallback from '../assets/pizza-cinematic.png'
 import heroPizza from '../assets/pizza-hero.png'
-import studioHero from '../assets/hero.png'
 
 export const FALLBACK_IMAGE = fallback
 
@@ -29,7 +28,6 @@ export function img(key: PhotoKey): string {
 export const HERO_SLIDES: { key: PhotoKey; image?: string; title: string; sub: string }[] = [
   { key: 'pepperoni', image: fallback, title: 'Pizza with fire in it.', sub: 'Double pepperoni, blistered crust, straight from the wood oven.' },
   { key: 'cheesepull', image: heroPizza, title: 'That cheese pull.', sub: 'Fior di latte stretched over San Marzano tomato.' },
-  { key: 'family', image: studioHero, title: 'Feed the whole table.', sub: 'Family boxes built for sharing — and saving.' },
   { key: 'stuffed', title: 'Stuffed crust, no regrets.', sub: 'A molten cheese rim around every slice.' },
   { key: 'spicy', title: 'Bring the heat.', sub: "'Nduja, chilli and honey for the brave." },
   { key: 'garlic', title: 'Start with garlic bread.', sub: 'Wood-fired dough, roasted garlic butter, sea salt.' },
