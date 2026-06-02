@@ -1,7 +1,7 @@
 /* App shell. Minimal header/footer scaffold for Phase 1 — full header lands in Phase 4.
    Hosts the cart drawer mount point + scroll-to-top on route change. */
 import { useEffect } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { ShoppingBag, User } from 'lucide-react'
 import { STORE } from '../data/catalog'
 import { getStoreStatus } from '../lib/storeStatus'
@@ -16,6 +16,7 @@ import './layout.css'
 
 export function Layout() {
   const { pathname } = useLocation()
+  const navigate = useNavigate()
   const count = useCartStore((s) => s.lines.reduce((n, l) => n + l.draft.quantity, 0))
   const openCart = useUIStore((s) => s.openCart)
   const status = getStoreStatus()
@@ -23,6 +24,14 @@ export function Layout() {
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [pathname])
+
+  function handleCartClick() {
+    if (window.matchMedia('(max-width: 640px)').matches) {
+      navigate('/cart')
+      return
+    }
+    openCart()
+  }
 
   return (
     <>
@@ -38,7 +47,7 @@ export function Layout() {
           <Link to="/account" className="account-link" aria-label="Your account">
             <User size={18} />
           </Link>
-          <button id={CART_PILL_ID} className="cart-pill" onClick={openCart} aria-label={`Open cart, ${count} items`}>
+          <button id={CART_PILL_ID} className="cart-pill" onClick={handleCartClick} aria-label={`Open cart, ${count} items`}>
             <ShoppingBag size={18} />
             {count > 0 && <span className="cart-pill__count tnum">{count}</span>}
           </button>
