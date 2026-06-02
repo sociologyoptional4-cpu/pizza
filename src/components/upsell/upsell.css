@@ -1,0 +1,70 @@
+.afteradd {
+  padding: var(--space-6);
+  text-align: center;
+}
+.afteradd__check {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--color-basil);
+  color: oklch(18% 0.02 40);
+  font-size: 1.4rem;
+  font-weight: 700;
+  box-shadow: 0 8px 30px -6px oklch(64% 0.15 150 / 0.5);
+}
+.afteradd__title {
+  font-size: var(--text-h3);
+  margin: var(--space-3) 0 var(--space-1);
+}
+.afteradd__sub {
+  color: var(--color-text-dim);
+  margin: 0 0 var(--space-5, 1.25rem);
+}
+.afteradd__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+@media (max-width: 480px) {
+  .afteradd__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.afteradd__card {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1.5px solid oklch(40% 0.02 50 / 0.35);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color var(--duration-fast), transform var(--duration-fast) var(--ease-spring);
+}
+.afteradd__card:hover {
+  border-color: var(--color-ember);
+  transform: translateY(-2px);
+}
+.afteradd__card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.afteradd__name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+.afteradd__price {
+  font-size: var(--text-sm);
+  color: var(--color-gold);
+}
+.afteradd__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+}

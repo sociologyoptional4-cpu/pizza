@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Order premium pizza delivery and collection online. Build Italian style pizzas, unlock takeaway deals, add sides, and checkout through WhatsApp."
+    />
+    <meta
+      name="keywords"
+      content="best pizza takeaway near me, pizza delivery, order pizza online, Italian style pizza, pizza collection, fast food takeaway"
+    />
+    <meta property="og:title" content="Pizza Rush | Premium Pizza Delivery" />
+    <meta
+      property="og:description"
+      content="A premium food-tech pizza ordering experience with live cart, deals, checkout, tracking and WhatsApp ordering."
+    />
+    <meta property="og:type" content="website" />
+    <title>Pizza Rush | Premium Pizza Delivery & Collection</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Pizza Rush",
+        "servesCuisine": ["Pizza", "Italian", "Fast food"],
+        "priceRange": "££",
+        "telephone": "+44 7700 900123",
+        "acceptsReservations": false,
+        "hasMenu": {
+          "@type": "Menu",
+          "hasMenuSection": [
+            { "@type": "MenuSection", "name": "Classic Pizzas" },
+            { "@type": "MenuSection", "name": "Chicken Pizzas" },
+            { "@type": "MenuSection", "name": "Vegetarian Pizzas" },
+            { "@type": "MenuSection", "name": "Deals, Sides and Drinks" }
+          ]
+        },
+        "potentialAction": {
+          "@type": "OrderAction",
+          "target": "https://wa.me/447700900123"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

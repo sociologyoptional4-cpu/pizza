@@ -1,0 +1,43 @@
+/* Typography — display serif (Fraunces) + UI sans (Inter), self-hosted via Google CSS API.
+   font-display: swap; only the critical weights preloaded in index.html. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap');
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1,
+.display-hero {
+  font-size: var(--text-hero);
+  font-weight: 900;
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+.lead {
+  font-size: var(--text-lead);
+  color: var(--color-text-dim);
+}
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ember);
+}

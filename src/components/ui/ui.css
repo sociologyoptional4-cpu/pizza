@@ -1,0 +1,195 @@
+/* Shared UI primitive styles. Neo-Italian Luxury. */
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-spring),
+    background-color var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-normal) var(--ease-out-expo);
+  user-select: none;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: scale(0.96);
+}
+.btn--lg {
+  padding: 0.9rem 1.6rem;
+  font-size: var(--text-lead);
+}
+.btn--md {
+  padding: 0.65rem 1.2rem;
+  font-size: var(--text-base);
+}
+.btn--sm {
+  padding: 0.4rem 0.85rem;
+  font-size: var(--text-sm);
+}
+.btn--primary {
+  background: var(--color-ember);
+  color: oklch(18% 0.02 40);
+  box-shadow: var(--glow-ember);
+}
+.btn--primary:hover {
+  background: var(--color-ember-hot);
+}
+.btn--ghost {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: oklch(40% 0.02 50 / 0.5);
+}
+.btn--ghost:hover {
+  background: var(--color-surface-2);
+}
+.btn--quiet {
+  background: transparent;
+  color: var(--color-text-dim);
+}
+.btn--quiet:hover {
+  color: var(--color-text);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------- Badge / Sticker ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.2em 0.65em;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.02em;
+}
+.badge--veg {
+  color: var(--color-basil);
+  background: oklch(64% 0.15 150 / 0.14);
+}
+.badge--nonveg {
+  color: var(--color-ember);
+  background: oklch(66% 0.2 38 / 0.14);
+}
+.badge--gold {
+  color: var(--color-gold);
+  background: oklch(82% 0.13 85 / 0.14);
+}
+.badge--neutral {
+  color: var(--color-text-dim);
+  background: var(--color-surface-2);
+}
+.sticker {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: 0.3em 0.7em;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: oklch(18% 0.02 40);
+  background: var(--color-gold);
+  border-radius: var(--radius-sm);
+  transform: rotate(-3deg);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Stepper (qty +/-) ---------- */
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border-radius: var(--radius-pill);
+  padding: 0.25rem;
+}
+.stepper button {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+}
+.stepper button:hover:not(:disabled) {
+  background: var(--color-ember);
+  color: oklch(18% 0.02 40);
+}
+.stepper button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.stepper span {
+  min-width: 1.5ch;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---------- Price counter ---------- */
+.price-counter {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+/* ---------- Sheet / drawer / modal ---------- */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: oklch(8% 0.01 40 / 0.6);
+  backdrop-filter: blur(6px);
+  z-index: var(--z-modal);
+}
+.sheet {
+  position: fixed;
+  z-index: var(--z-modal);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-pop);
+  display: flex;
+  flex-direction: column;
+}
+/* drawer: right side on desktop */
+.sheet--drawer {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(440px, 100vw);
+}
+/* modal: centered card on desktop. inset+margin auto avoids a CSS transform that
+   framer-motion's scale would otherwise clobber. */
+.sheet--modal {
+  inset: 0;
+  margin: auto;
+  width: min(640px, 94vw);
+  height: max-content;
+  max-height: 92vh;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+/* bottom sheet on mobile */
+@media (max-width: 640px) {
+  .sheet--drawer,
+  .sheet--modal {
+    inset: auto 0 0 0;
+    margin: 0;
+    transform: none;
+    width: 100vw;
+    height: max-content;
+    max-height: 92vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+}

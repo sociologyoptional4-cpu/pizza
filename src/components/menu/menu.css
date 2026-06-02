@@ -1,0 +1,96 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-6);
+}
+.pcard {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+.pcard:hover {
+  transform: translateY(-4px);
+}
+.pcard__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: var(--color-char);
+  overflow: hidden;
+}
+.pcard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+.pcard__media:hover img {
+  transform: scale(1.06);
+}
+.pcard__add {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: var(--color-ember);
+  color: oklch(18% 0.02 40);
+  box-shadow: var(--glow-ember);
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform var(--duration-normal) var(--ease-spring), opacity var(--duration-normal);
+}
+.pcard__media:hover .pcard__add,
+.pcard__media:focus-visible .pcard__add {
+  transform: translateY(0);
+  opacity: 1;
+}
+.pcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+.pcard__titlerow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+.pcard__name {
+  font-size: var(--text-lead);
+  font-family: var(--font-display);
+}
+.pcard__price {
+  color: var(--color-gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pcard__desc {
+  color: var(--color-text-dim);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+.pcard__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+.pcard__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: var(--text-sm);
+  color: var(--color-text-dim);
+}
