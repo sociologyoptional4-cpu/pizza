@@ -17,9 +17,9 @@ export function AfterAddUpsell() {
 
   const productSuggestions = UPSELLS['after-add-pizza'].filter((u) => u.productId)
 
-  function viewCart() {
+  function openCartAfterUpsell() {
     hideUpsell()
-    openCart()
+    window.setTimeout(openCart, 240)
   }
 
   return (
@@ -39,8 +39,7 @@ export function AfterAddUpsell() {
                 className="afteradd__card"
                 onClick={() => {
                   addDraft({ ...createDraft(p.id), quantity: 1 })
-                  hideUpsell()
-                  openCart()
+                  openCartAfterUpsell()
                 }}
               >
                 <img src={p.image} alt="" aria-hidden />
@@ -55,7 +54,7 @@ export function AfterAddUpsell() {
           <Button variant="ghost" onClick={hideUpsell}>
             Keep browsing
           </Button>
-          <Button onClick={viewCart}>View cart</Button>
+          <Button onClick={openCartAfterUpsell}>View cart</Button>
         </div>
       </div>
     </Sheet>
