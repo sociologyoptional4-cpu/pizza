@@ -91,7 +91,7 @@ export function Home() {
           <AnimatePresence mode="popLayout">
             <motion.img
               key={slide}
-              src={photo(active.key)}
+              src={active.image ?? photo(active.key)}
               alt={active.title}
               fetchPriority="high"
               width={620}
